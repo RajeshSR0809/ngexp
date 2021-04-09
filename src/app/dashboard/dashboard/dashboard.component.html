@@ -1,0 +1,21 @@
+<mat-sidenav-container class="sidenav-container" >
+  
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" >  
+    
+    <ng-container *ngIf="navItems$ | async as navItems">
+      <mat-nav-list>
+        <app-nav-item-search></app-nav-item-search>
+        <ng-container *ngFor="let navItem of navItems">
+          <app-nav-item *ngIf="!navItem.children"  [navItem]="navItem"></app-nav-item>
+          <app-nav-item-expand *ngIf="navItem.children" [navItem]="navItem"></app-nav-item-expand>
+        </ng-container>
+      </mat-nav-list>
+    </ng-container>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

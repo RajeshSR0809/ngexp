@@ -1,0 +1,26 @@
+<ng-container>
+
+    <mat-list-item (click)="onSwitch()" routerLinkActive="active" [routerLink]="navItem?.link" class="app-nav-list-item" >
+        <mat-icon mat-list-icon aria-hidden="false" aria-label="Example home icon">{{navItem?.icon}}</mat-icon>
+        <a matLine >{{navItem?.name}}</a>
+        <mat-icon *ngIf="!panelOpen" aria-hidden="false" aria-label="Example home icon">expand_more</mat-icon>
+        <mat-icon *ngIf="panelOpen" aria-hidden="false" aria-label="Example home icon">expand_less</mat-icon>
+    </mat-list-item>
+
+    <div matLine [@animationShowHide]="sStatus">
+      <ng-container *ngFor="let nestNavItem of navItem?.children">
+        <app-nav-item [navItem]="nestNavItem"></app-nav-item>
+      </ng-container>        
+    </div>  
+
+</ng-container>
+
+
+
+
+
+
+
+
+
+
