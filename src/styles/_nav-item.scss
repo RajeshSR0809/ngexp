@@ -23,10 +23,18 @@
     }
 
     // to manage the nav items search field
-    .mat-form-field {
-        width: 100%;
-        .mat-form-field-flex {
-            background-color: white !important;
+    &.nav-item-search{
+        .mat-list-item-content {
+            padding: 0 !important;
         }
+
+        .mat-form-field {
+            width: 100%;
+            .mat-form-field-flex {
+                background-color: white !important;
+            }
+        }
+
     }
+
 }

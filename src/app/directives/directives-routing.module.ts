@@ -3,9 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { LazyOptionsComponent } from './lazy-options/lazy-options.component';
 
 const routes: Routes = [
+ 
     {
         path: "lazyoptions",
         component: LazyOptionsComponent
+    },
+    {
+        path: "",
+        redirectTo: "lazyoptions",
+        pathMatch: "full"
     },
 
 ];
