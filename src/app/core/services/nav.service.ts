@@ -15,29 +15,53 @@ export class NavService {
           name: "Directives", 
           icon: "verified", 
           link: "/directives", 
+          parent: true,
           children: [
             { 
               name: "Lazy Load Options", 
               icon: "published_with_changes", 
-              link: "/directives/lazyoptions"
+              link: "/directives/lazyoptions",
+              nav: true,
             },
             {
               name: "Prevent Propagation",
               icon: "near_me_disabled",
-              link: "/directives/preventpropagation"
+              link: "/directives/preventpropagation",
+              nav: true,
             }
           ]
         },
         { 
           name: "Cards", 
           icon: "verified", 
-          link: "/cardss", 
+          link: "/cards",
+          parent: true,
+        },
+        {
+          name: "Advanced Patterns",
+          icon: "pattern",
+          link: "/patterns",
+          parent: true,
           children: [
-            { 
-              name: "More Info", 
-              icon: "published_with_changes", 
-              link: "/cards/moreinfo" 
+            {
+              name: "Component",
+              icon: "minimize",
+              link: "/patterns/component",
+              nav: true,
+            },
+            {
+              name: "Compount Component",
+              icon: "menu",
+              link: "/patterns/comp",
+              nav: true,
+            },
+            {
+              name: "Compount Component DI",
+              icon: "wrap_text",
+              link: "/patterns/compDI",
+              nav: true,
             }
+
           ] 
         }
       ]

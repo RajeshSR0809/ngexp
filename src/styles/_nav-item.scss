@@ -3,20 +3,30 @@
 
 
 .mat-list-item.app-nav-list-item {
-    // to manage active link
+    //to manage the nav item
+    margin-bottom: 5px;
+    
+    //to manage the nav item parent
+    &.nav-item-parent {
+        a.mat-line {
+            font-weight: 600 !important;
+        }
+    }
+    
+    // to manage active nav item
     &.active  {
         .mat-icon {
             color: $p300 !important;
         }
     }
 
-    // to manage link
+    // to manage nav item
     a {
         font-weight: $font-wieght !important;
         color: $ng800 !important;
     }
 
-    // to manage nav-link icon
+    // to manage nav item icon
     .mat-icon {
         color: $ng300 !important;
         font-size: 30px !important;
@@ -24,6 +34,9 @@
 
     // to manage the nav items search field
     &.nav-item-search{
+        background-color: unset !important;
+        margin-bottom: 0px;
+
         .mat-list-item-content {
             padding: 0 !important;
         }
