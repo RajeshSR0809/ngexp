@@ -1,6 +1,6 @@
 <mat-sidenav-container class="sidenav-container" >
   
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" >  
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened"  >  
     
     <ng-container *ngIf="navItems$ | async as navItems">
       <mat-nav-list>
@@ -14,8 +14,16 @@
 
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
+  <mat-sidenav-content #sideNavContainer>
+    <mat-toolbar>
+      <button (click)="toggleSideNav()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+
+    <div><router-outlet></router-outlet></div>
   </mat-sidenav-content>
 
 </mat-sidenav-container>

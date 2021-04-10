@@ -7,7 +7,7 @@
         <mat-icon *ngIf="panelOpen" aria-hidden="false" aria-label="Example home icon">expand_less</mat-icon>
     </mat-list-item>
 
-    <div matLine [@animationShowHide]="sStatus">
+    <div class="nav-item-children" matLine [@animationShowHide]="sStatus">
       <ng-container *ngFor="let nestNavItem of navItem?.children">
         <app-nav-item [navItem]="nestNavItem"></app-nav-item>
       </ng-container>        
