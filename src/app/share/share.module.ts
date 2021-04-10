@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavItemComponent } from './components/nav-item/nav-item.component';
 import { NavItemSearchComponent } from './components/nav-item-search/nav-item-search.component';
@@ -16,6 +16,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     MaterialModule,
     RouterModule
+  ],
+  providers: [
+    { provide: NavItemComponent, useExisting: forwardRef(() => NavItemComponent) },
+    { provide: NavItemExpandComponent, useExisting: forwardRef(() => NavItemExpandComponent) }
   ]
 })
 export class ShareModule { }

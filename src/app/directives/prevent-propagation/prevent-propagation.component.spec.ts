@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContainerComponent } from './container.component';
+import { PreventPropagationComponent } from './prevent-propagation.component';
 
-describe('ContainerComponent', () => {
-  let component: ContainerComponent;
-  let fixture: ComponentFixture<ContainerComponent>;
+describe('PreventPropagationComponent', () => {
+  let component: PreventPropagationComponent;
+  let fixture: ComponentFixture<PreventPropagationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContainerComponent ]
+      declarations: [ PreventPropagationComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContainerComponent);
+    fixture = TestBed.createComponent(PreventPropagationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -10,6 +10,10 @@ const routes: Routes = [
             {
                 path: 'directives',
                 loadChildren: () => import("../directives/directives.module").then(m => m.DirectivesModule)
+            },
+            {
+                path: 'cards',
+                loadChildren: () => import("../cards/cards.module").then(m => m.CardsModule)
             }
         ]
     }
@@ -19,4 +23,6 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class DashboardRoutingModule { }
+export class DashboardRoutingModule { 
+    constructor(){}
+}

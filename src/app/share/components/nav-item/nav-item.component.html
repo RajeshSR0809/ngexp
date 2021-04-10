@@ -1,4 +1,4 @@
-<mat-list-item routerLinkActive="active" [routerLink]="navItem?.link" class="app-nav-list-item" [ngClass]="{'nav-item-child': navItem.nav, 'nav-item-parent': navItem.parent}" >
+<mat-list-item *ngIf="!navItem.children" routerLinkActive="active" [routerLink]="navItem?.link" class="app-nav-list-item" [ngClass]="{'nav-item-child': navItem.child, 'nav-item-parent': navItem.parent}" >
     <mat-icon mat-list-icon aria-hidden="false" aria-label="Example home icon">{{navItem?.icon}}</mat-icon>
     <a matLine >{{navItem?.name}}</a>
 </mat-list-item>

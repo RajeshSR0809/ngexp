@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LazyOptionsComponent } from './lazy-options/lazy-options.component';
 import { DirectivesRoutingModule } from './directives-routing.module';
-import { ContainerComponent } from './container/container.component';
+import { PreventPropagationComponent } from './prevent-propagation/prevent-propagation.component';
 
 
 
 @NgModule({
-  declarations: [LazyOptionsComponent, ContainerComponent],
+  declarations: [LazyOptionsComponent, PreventPropagationComponent],
   imports: [
     CommonModule,
     DirectivesRoutingModule

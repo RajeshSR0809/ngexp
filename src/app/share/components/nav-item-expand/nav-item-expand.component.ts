@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterContentInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Router, NavigationEnd } from '@angular/router';
-import { filter, tap, map, switchMap, delay, take } from 'rxjs/operators';
+import { filter, tap, map, switchMap, delay, take, merge } from 'rxjs/operators';
 import { MatListItem } from '@angular/material/list';
 import { Subject, of, race, Observable } from 'rxjs';
 
@@ -28,31 +28,45 @@ export class NavItemExpandComponent implements OnInit, AfterContentInit {
   sStatus = 'close';
   @Input() navItem;
 
-  //navItemRef: ElementRef<MatListItem>
+  router$ = new Subject<string>();
+  directRoute$: Observable<any>;
+  navRoute$: Observable<any>;
   @ViewChild('navItemRef') 
   set navItemRefSetter(matListItem: ElementRef<MatListItem>){
-    //this.navItemRef = matListItem;
+    
+    //this.directRoute$ = 
     of(this.router.routerState.snapshot.url).pipe(
       take(1),
-      // switchMap(_ => of(this.router.routerState.snapshot.url)),
       filter((url: string) => url.includes(this.navItem.link)),
       delay(0),
       tap(event => this.onSwitch()),
-    ).subscribe()
+    )
+    .subscribe()
 
   }
   
-
-  //directRoute$ = new Subject<ElementRef<MatListItem>>();
-  constructor(private router: Router) { 
-    
-  }
+  constructor(private router: Router) { }
 
   ngAfterContentInit(){
-
+    console.log(this.directRoute$)
+    console.log(this.navRoute$)
+    this.router$.pipe(
+      merge(this.directRoute$, this.navRoute$),
+      take(1)
+    )
+    //.subscribe(console.log)
   }
   ngOnInit(): void {
-    //race(this.directNav$, this.navigation$ ).subscribe(data => console.log(data));      
+    //this.navRoute$ = 
+    this.router.events
+    .pipe(
+      filter(event => event instanceof NavigationEnd),
+      map((event: NavigationEnd) => event.url),
+      filter((url: string) => url.includes(this.navItem.link)),
+      tap(event => this.onSwitch()),
+      take(1)
+    )
+    .subscribe()
   }
 
   onSwitch() {

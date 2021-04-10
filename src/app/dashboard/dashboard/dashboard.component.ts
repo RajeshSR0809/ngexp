@@ -3,6 +3,7 @@ import { NavService } from 'src/app/core/services/nav.service';
 import { Observable, of } from 'rxjs';
 import { MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
 import { delay, take } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,12 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild('sidenav') sidenav: ViewContainerRef;
   @ViewChild('sideNavContainer') sideNavContainer: ViewContainerRef;
-  constructor(private navService: NavService) { }
+  constructor(private navService: NavService, private router: Router, private activateRoute: ActivatedRoute) { 
+    if (this.router.url == '/') {
+      console.log(this.router.url)
+      this.router.navigate(['/directives'], { relativeTo: this.activateRoute})
+    }
+  }
 
   ngOnInit(): void {
     this.navItems$ = this.navService.getNavItem();

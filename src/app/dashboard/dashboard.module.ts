@@ -5,6 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { ShareModule } from '../share';
 import { NavService } from '../core/services/nav.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 
@@ -12,4 +13,8 @@ import { NavService } from '../core/services/nav.service';
   declarations: [DashboardComponent],
   imports: [CommonModule, DashboardRoutingModule, MaterialModule, ShareModule],
 })
-export class DashboardModule {}
+export class DashboardModule {
+  constructor(private router: Router, private activateRoute: ActivatedRoute){
+
+  }
+}

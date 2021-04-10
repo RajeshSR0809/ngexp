@@ -21,21 +21,22 @@ export class NavService {
               name: "Lazy Load Options", 
               icon: "published_with_changes", 
               link: "/directives/lazyoptions",
-              nav: true,
+              child: true,
             },
             {
               name: "Prevent Propagation",
               icon: "near_me_disabled",
               link: "/directives/preventpropagation",
-              nav: true,
+              child: true,
             }
           ]
         },
         { 
           name: "Cards", 
-          icon: "verified", 
+          icon: "style", 
           link: "/cards",
           parent: true,
+          nav: true
         },
         {
           name: "Advanced Patterns",
@@ -47,19 +48,27 @@ export class NavService {
               name: "Component",
               icon: "minimize",
               link: "/patterns/component",
-              nav: true,
+              child: true,
             },
             {
               name: "Compount Component",
               icon: "menu",
               link: "/patterns/comp",
-              nav: true,
+              child: true,
             },
             {
               name: "Compount Component DI",
               icon: "wrap_text",
               link: "/patterns/compDI",
-              nav: true,
+              parent: true,
+              children: [
+                {
+                  name: "Compount Component",
+                  icon: "menu",
+                  link: "/patterns/comp",
+                  child: true,
+                }
+              ]
             }
 
           ] 
