@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   constructor(private navService: NavService, private router: Router, private activateRoute: ActivatedRoute) { 
     if (this.router.url == '/') {
       console.log(this.router.url)
-      this.router.navigate(['/directives'], { relativeTo: this.activateRoute})
+      //this.router.navigate(['/directives'], { relativeTo: this.activateRoute})
     }
   }
 
@@ -45,8 +45,8 @@ export class DashboardComponent implements OnInit {
     //   width: 100px;
     
     // so it is compared with 100 
-    if(sideNavWidth <= 100){
-      return 101+'px';
+    if(sideNavWidth <= 120){
+      return 121+'px';
     }
     return sideNavWidth+'px';
   }

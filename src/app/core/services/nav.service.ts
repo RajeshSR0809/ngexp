@@ -31,13 +31,29 @@ export class NavService {
             }
           ]
         },
-        { 
-          name: "Cards", 
-          icon: "style", 
+        {
+          name: "Cards",
+          icon: "style",
           link: "/cards",
           parent: true,
-          nav: true
+          nav: true,
         },
+        // { 
+        //   name: "Cards", 
+        //   icon: "style", 
+        //   link: "/cards",
+        //   parent: true,
+        //   nav: true,
+        //   children: [
+        //     {
+        //       name: "Cards",
+        //       icon: "style",
+        //       link: "/cards",
+        //       child: true,
+        //       nav: true,
+        //     }
+        //   ]
+        // },
         {
           name: "Advanced Patterns",
           icon: "pattern",
@@ -72,6 +88,76 @@ export class NavService {
             }
 
           ] 
+        },
+        {
+          name: "Advanced Patterns",
+          icon: "pattern",
+          link: "/patterns",
+          parent: true,
+          children: [
+            {
+              name: "Component",
+              icon: "minimize",
+              link: "/patterns/component",
+              child: true,
+            },
+            {
+              name: "Compount Component",
+              icon: "menu",
+              link: "/patterns/comp",
+              child: true,
+            },
+            {
+              name: "Compount Component DI",
+              icon: "wrap_text",
+              link: "/patterns/compDI",
+              parent: true,
+              children: [
+                {
+                  name: "Compount Component",
+                  icon: "menu",
+                  link: "/patterns/comp",
+                  child: true,
+                }
+              ]
+            }
+
+          ]
+        },
+        {
+          name: "Advanced Patterns",
+          icon: "pattern",
+          link: "/patterns",
+          parent: true,
+          children: [
+            {
+              name: "Component",
+              icon: "minimize",
+              link: "/patterns/component",
+              child: true,
+            },
+            {
+              name: "Compount Component",
+              icon: "menu",
+              link: "/patterns/comp",
+              child: true,
+            },
+            {
+              name: "Compount Component DI",
+              icon: "wrap_text",
+              link: "/patterns/compDI",
+              parent: true,
+              children: [
+                {
+                  name: "Compount Component",
+                  icon: "menu",
+                  link: "/patterns/comp",
+                  child: true,
+                }
+              ]
+            }
+
+          ]
         }
       ]
     );

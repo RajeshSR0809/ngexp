@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterContentInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Router, NavigationEnd } from '@angular/router';
-import { filter, tap, map, switchMap, delay, take, merge } from 'rxjs/operators';
+import { filter, tap, map, switchMap, delay, take, takeUntil } from 'rxjs/operators';
 import { MatListItem } from '@angular/material/list';
-import { Subject, of, race, Observable } from 'rxjs';
+import { Subject, of, race, Observable, BehaviorSubject, merge } from 'rxjs';
+import { SideNavService } from 'src/app/dashboard/side-nav/side-nav.service';
 
 @Component({
   selector: 'app-nav-item-expand',
@@ -29,44 +30,71 @@ export class NavItemExpandComponent implements OnInit, AfterContentInit {
   @Input() navItem;
 
   router$ = new Subject<string>();
-  directRoute$: Observable<any>;
+  directRoute$: Observable<any> = new Subject();
   navRoute$: Observable<any>;
   @ViewChild('navItemRef') 
   set navItemRefSetter(matListItem: ElementRef<MatListItem>){
     
-    //this.directRoute$ = 
-    of(this.router.routerState.snapshot.url).pipe(
-      take(1),
-      filter((url: string) => url.includes(this.navItem.link)),
-      delay(0),
-      tap(event => this.onSwitch()),
-    )
-    .subscribe()
+    //.subscribe()
 
   }
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private sideNavService: SideNavService) { 
+
+
+    // this.directRoute$ =
+    //   of(this.router.routerState.snapshot.url).pipe(
+    //     filter((url: string) => url.includes(this.navItem.link)),
+    //     delay(0),
+    //     tap(event => this.onSwitch()),
+    //     take(1),
+    //   )
+
+
+    // this.navRoute$ = 
+    // this.router.events
+    //   .pipe(
+    //     filter(event => event instanceof NavigationEnd),
+    //     map((event: NavigationEnd) => event.url),
+    //     filter((url: string) => url.includes(this.navItem.link)),
+    //     tap(event => this.onSwitch()),
+    //     take(1)
+    //   )
+
+  }
 
   ngAfterContentInit(){
-    console.log(this.directRoute$)
-    console.log(this.navRoute$)
-    this.router$.pipe(
-      merge(this.directRoute$, this.navRoute$),
-      take(1)
-    )
-    //.subscribe(console.log)
+    // merge(this.directRoute$, this.navRoute$)
+    // .pipe(
+    //   take(1)
+    // )
+    // .subscribe(_ => console.log('merged value ', _), null, ()=> console.log('completed'))
   }
   ngOnInit(): void {
-    //this.navRoute$ = 
+    
+    this.sideNavService.r$.subscribe(data => console.log(data), null, () => console.log('completed'));
+    of(this.router.routerState.snapshot.url)
+      .pipe(
+        filter((url: string) => url.includes(this.navItem.link)),
+        delay(0),
+        tap(event => this.onSwitch()),
+        take(1),
+        
+        tap(data => this.sideNavService.direct$.next(data))
+      )
+      .subscribe()
+
     this.router.events
-    .pipe(
-      filter(event => event instanceof NavigationEnd),
-      map((event: NavigationEnd) => event.url),
-      filter((url: string) => url.includes(this.navItem.link)),
-      tap(event => this.onSwitch()),
-      take(1)
-    )
-    .subscribe()
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        map((event: NavigationEnd) => event.url),
+        filter((url: string) => url.includes(this.navItem.link)),
+        tap(event => this.onSwitch()),
+        take(1),
+        takeUntil(this.sideNavService.r$),
+        tap(data => this.sideNavService.nav$.next(data))
+      ).subscribe();
+    
   }
 
   onSwitch() {

@@ -6,11 +6,12 @@ import { MaterialModule } from '../material/material.module';
 import { ShareModule } from '../share';
 import { NavService } from '../core/services/nav.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, SideNavComponent],
   imports: [CommonModule, DashboardRoutingModule, MaterialModule, ShareModule],
 })
 export class DashboardModule {
