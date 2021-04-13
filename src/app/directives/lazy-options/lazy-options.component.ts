@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DirectivesService } from 'src/app/core/services/directives.service';
+import { Observable } from 'rxjs';
+import { INSTITUTION } from 'src/app/core/models/institution';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-lazy-options',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LazyOptionsComponent implements OnInit {
 
-  constructor() { }
+  insts$: Observable<INSTITUTION[]>
+  constructor(private directivesService: DirectivesService) { }
 
   ngOnInit(): void {
+    this.insts$ = this.directivesService.getInsts();
   }
 
+  trackByInst(index: number, inst: INSTITUTION) {
+    return inst.InstitutionID;
+  }
 }

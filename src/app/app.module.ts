@@ -8,6 +8,8 @@ import { ShareModule } from './share/share.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ApiService } from './core/services/api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,13 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     CoreModule,
     ShareModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LazyOptionsComponent } from './lazy-options/lazy-options.component';
 import { DirectivesRoutingModule } from './directives-routing.module';
 import { PreventPropagationComponent } from './prevent-propagation/prevent-propagation.component';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -10,7 +11,8 @@ import { PreventPropagationComponent } from './prevent-propagation/prevent-propa
   declarations: [LazyOptionsComponent, PreventPropagationComponent],
   imports: [
     CommonModule,
-    DirectivesRoutingModule
+    DirectivesRoutingModule,
+    MaterialModule
   ]
 })
 export class DirectivesModule { }

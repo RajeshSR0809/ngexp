@@ -1,1 +1,39 @@
-<p>lazy-options works!</p>
+<div class="row ">
+  <div class="col-6">
+    <mat-card class="">
+      <mat-card-header>
+        <div mat-card-avatar class=""></div>
+        <mat-card-title>With out Directive</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <ng-container *ngIf="insts$ | async as insts">
+        <!-- sndtrsVScroll [data]="currentStateAvailableInstitutions" (lazyData)="lazyDataHandler($event)" size="10" -->
+          <select   aria-labelledby="Available Institutions"  name="availableInstitutions" #avInstElem   size="10"  matInput class="st-form-control" id="available-institutions" multiple>
+              <option  *ngFor="let inst of insts; trackBy:trackByInst" [value]="inst">{{ inst.Name }}
+              </option>
+          </select>
+        </ng-container>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col-6">
+    <mat-card class="">
+      <mat-card-header>
+        <div mat-card-avatar class=""></div>
+        <mat-card-title>With Directive</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <ng-container *ngIf="insts$ | async as insts">
+        <!-- sndtrsVScroll [data]="currentStateAvailableInstitutions" (lazyData)="lazyDataHandler($event)" size="10" -->
+          <select   aria-labelledby="Available Institutions"  name="availableInstitutions" #avInstElem   size="10"  matInput class="st-form-control" id="available-institutions" multiple>
+              <option  *ngFor="let inst of insts; trackBy:trackByInst" [value]="inst">{{ inst.Name }}
+              </option>
+          </select>
+        </ng-container>
+      </mat-card-content>
+    </mat-card>    
+  </div>
+</div>

@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   constructor(private navService: NavService, private router: Router, private activateRoute: ActivatedRoute) { 
     if (this.router.url == '/') {
       console.log(this.router.url)
-      //this.router.navigate(['/directives'], { relativeTo: this.activateRoute})
+      this.router.navigate(['/directives'], { relativeTo: this.activateRoute})
     }
   }
 
