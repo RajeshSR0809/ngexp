@@ -11,7 +11,7 @@ import { map, tap, delay } from 'rxjs/operators';
 })
 export class LazyOptionsComponent implements OnInit {
   insts: INSTITUTION[];
-  instsWithDir: INSTITUTION[];
+  instsWithDir: INSTITUTION[] = [];
   instsClone: INSTITUTION[] = [];
   constructor(private directivesService: DirectivesService) {}
 
@@ -20,8 +20,7 @@ export class LazyOptionsComponent implements OnInit {
       .getInsts()
       .pipe(
         tap((data) => (this.instsClone = data)),
-        tap((data) => (this.insts = data)),
-        tap((data) => (this.instsWithDir = []))
+        tap((data) => (this.insts = [...data, ...data, ...data]))
       )
       .subscribe();
   }
@@ -31,7 +30,7 @@ export class LazyOptionsComponent implements OnInit {
   }
 
   lazyDataHandler(insts) {
-    of(1).pipe(delay(10),tap(data => this.instsWithDir.push(...insts))).subscribe()
+    of(1).pipe(tap(data => this.instsWithDir.push(...insts))).subscribe()
     
   }
 }

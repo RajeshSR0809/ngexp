@@ -1,4 +1,9 @@
+
+
 <div class="row ">
+  <div class="col-12">
+    <p>Large data set can make user to wait until the options are painted to the DOM. We can load the options in batches when user scrolls down and free event loop</p>
+  </div>
   <div class="col-6">
     <mat-card class="">
       <mat-card-header>
@@ -12,6 +17,9 @@
               <option  *ngFor="let inst of insts; trackBy:trackByInst" [value]="inst">{{ inst.Name }}
               </option>
           </select>
+        </ng-container>
+        <ng-container *ngIf="!insts">
+          <p>Loading ....</p>
         </ng-container>
       </mat-card-content>
       <mat-action-row>
@@ -36,7 +44,8 @@
         </ng-container>
       </mat-card-content>
       <mat-action-row>
-        <button mat-button>Rendered <span *ngIf="instsWithDir">{{instsWithDir?.length}}</span>  <span *ngIf="!instsWithDir">0</span> items</button>
+        <button mat-button *ngIf="instsWithDir">Rendered <span >{{instsWithDir?.length}}</span> items</button>
+        <button mat-button *ngIf="!instsWithDir">Loading ....</button>
       </mat-action-row>
 
     </mat-card>    
