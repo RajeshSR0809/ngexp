@@ -13,7 +13,7 @@
 
       <mat-card-content>
         <ng-container *ngIf="insts">
-          <select   aria-labelledby="Available Institutions"  name="availableInstitutions" #avInstElem   size="10"  matInput class="st-form-control" id="available-institutions" multiple>
+          <select   aria-labelledby="Available Institutions"  name="availableInstitutions" #avInstElem matInput class="st-form-control" id="available-institutions" multiple>
               <option  *ngFor="let inst of insts; trackBy:trackByInst" [value]="inst">{{ inst.Name }}
               </option>
           </select>
