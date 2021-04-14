@@ -5,14 +5,14 @@ import { DirectivesRoutingModule } from './directives-routing.module';
 import { PreventPropagationComponent } from './prevent-propagation/prevent-propagation.component';
 import { MaterialModule } from '../material/material.module';
 import { LazyOptionsDirective } from './lazy-options.directive';
-import { PreventPropagationDirective } from './prevent-propagation.directive';
 import { AddAttributesComponent } from './add-attributes/add-attributes.component';
 import { AddAttributesDirective } from './add-attributes.directive';
 
 
 
+
 @NgModule({
-  declarations: [LazyOptionsComponent, PreventPropagationComponent, LazyOptionsDirective, PreventPropagationDirective, AddAttributesComponent, AddAttributesDirective],
+  declarations: [LazyOptionsComponent, PreventPropagationComponent, LazyOptionsDirective, AddAttributesComponent, AddAttributesDirective],
   imports: [
     CommonModule,
     DirectivesRoutingModule,

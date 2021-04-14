@@ -8,6 +8,7 @@ export class PreventPropagationDirective {
 
   @HostListener('click', ['$event'])
   clickHandler(event) {
+    debugger;
     event.preventDefault();
     event.stopPropagation();
     event.stopImmediatePropagation();

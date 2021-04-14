@@ -5,25 +5,23 @@ import { PreventPropagationComponent } from './prevent-propagation/prevent-propa
 import { AddAttributesComponent } from './add-attributes/add-attributes.component';
 
 const routes: Routes = [
- 
-    {
-        path: "lazyoptions",
-        component: LazyOptionsComponent
-    },
-    {
-        path: "preventpropagation",
-        component: PreventPropagationComponent
-    },  
-    {
-        path: 'editattributes',
-        component: AddAttributesComponent,
-    },
-    {
-        path: "",
-        redirectTo: "lazyoptions",
-        pathMatch: "full"
-    },
-
+  {
+    path: 'lazyoptions',
+    component: LazyOptionsComponent,
+  },
+  {
+    path: 'preventpropagation',
+    component: PreventPropagationComponent,
+  },
+  {
+    path: 'editattributes',
+    component: AddAttributesComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'preventpropagation',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

@@ -6,20 +6,33 @@ import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { NavItemExpandComponent } from './components/nav-item-expand/nav-item-expand.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PreventPropagationDirective } from './directives';
+
 
 
 
 @NgModule({
-  declarations: [NavItemComponent, NavItemSearchComponent, NavItemExpandComponent],
+  declarations: [
+    NavItemComponent,
+    NavItemSearchComponent,
+    NavItemExpandComponent,
+    PreventPropagationDirective,
+  ],
   exports: [NavItemComponent, NavItemSearchComponent, NavItemExpandComponent],
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [
-    { provide: NavItemComponent, useExisting: forwardRef(() => NavItemComponent) },
-    { provide: NavItemExpandComponent, useExisting: forwardRef(() => NavItemExpandComponent) }
-  ]
+    {
+      provide: NavItemComponent,
+      useExisting: forwardRef(() => NavItemComponent),
+    },
+    {
+      provide: NavItemExpandComponent,
+      useExisting: forwardRef(() => NavItemExpandComponent),
+    },
+  ],
 })
-export class ShareModule { }
+export class ShareModule {}

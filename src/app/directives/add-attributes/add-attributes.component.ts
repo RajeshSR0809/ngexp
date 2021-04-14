@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-attributes.component.scss'],
 })
 export class AddAttributesComponent implements OnInit {
-  attrObj = {};
+  attrObj = { disabled : false};
   constructor() {}
 
   ngOnInit(): void {}

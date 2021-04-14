@@ -21,10 +21,9 @@ import { SideNavService } from 'src/app/dashboard/side-nav/side-nav.service';
       state('open', style({ transform: 'rotate(-180deg)' })),
       transition('open <=> close', animate('200ms ease-in-out')),
     ]),
-  ],  
+  ],
 })
 export class NavItemExpandComponent implements OnInit, AfterContentInit {
-
   panelOpen = false;
   sStatus = 'close';
   @Input() navItem;
@@ -32,16 +31,9 @@ export class NavItemExpandComponent implements OnInit, AfterContentInit {
   router$ = new Subject<string>();
   directRoute$: Observable<any> = new Subject();
   navRoute$: Observable<any>;
-  @ViewChild('navItemRef') 
-  set navItemRefSetter(matListItem: ElementRef<MatListItem>){
-    
-    //.subscribe()
+  @ViewChild('navItemRef') navItemRef: ElementRef<MatListItem>;
 
-  }
-  
-  constructor(private router: Router, private sideNavService: SideNavService) { 
-
-
+  constructor(private router: Router, private sideNavService: SideNavService) {
     // this.directRoute$ =
     //   of(this.router.routerState.snapshot.url).pipe(
     //     filter((url: string) => url.includes(this.navItem.link)),
@@ -49,9 +41,7 @@ export class NavItemExpandComponent implements OnInit, AfterContentInit {
     //     tap(event => this.onSwitch()),
     //     take(1),
     //   )
-
-
-    // this.navRoute$ = 
+    // this.navRoute$ =
     // this.router.events
     //   .pipe(
     //     filter(event => event instanceof NavigationEnd),
@@ -60,10 +50,9 @@ export class NavItemExpandComponent implements OnInit, AfterContentInit {
     //     tap(event => this.onSwitch()),
     //     take(1)
     //   )
-
   }
 
-  ngAfterContentInit(){
+  ngAfterContentInit() {
     // merge(this.directRoute$, this.navRoute$)
     // .pipe(
     //   take(1)
@@ -71,30 +60,32 @@ export class NavItemExpandComponent implements OnInit, AfterContentInit {
     // .subscribe(_ => console.log('merged value ', _), null, ()=> console.log('completed'))
   }
   ngOnInit(): void {
-    
-    this.sideNavService.r$.subscribe(data => console.log(data), null, () => console.log('completed'));
+    this.sideNavService.r$.subscribe(
+      (data) => console.log(data),
+      null,
+      () => console.log('completed')
+    );
     of(this.router.routerState.snapshot.url)
       .pipe(
         filter((url: string) => url.includes(this.navItem.link)),
         delay(0),
-        tap(event => this.onSwitch()),
+        tap((event) => this.onSwitch()),
         take(1),
-        
-        tap(data => this.sideNavService.direct$.next(data))
+        tap((data) => this.sideNavService.direct$.next(data))
       )
-      .subscribe()
+      .subscribe();
 
     this.router.events
       .pipe(
-        filter(event => event instanceof NavigationEnd),
+        filter((event) => event instanceof NavigationEnd),
         map((event: NavigationEnd) => event.url),
         filter((url: string) => url.includes(this.navItem.link)),
-        tap(event => this.onSwitch()),
+        tap((event) => this.onSwitch()),
         take(1),
         takeUntil(this.sideNavService.r$),
-        tap(data => this.sideNavService.nav$.next(data))
-      ).subscribe();
-    
+        tap((data) => this.sideNavService.nav$.next(data))
+      )
+      .subscribe();
   }
 
   onSwitch() {

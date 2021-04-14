@@ -1,10 +1,17 @@
 <ng-container>
 
-    <mat-list-item #navItemRef routerLinkActive="active" [routerLink]="navItem?.link" (click)="onSwitch()" class="app-nav-list-item"  [ngClass]="{'nav-item-child': navItem.child, 'nav-item-parent': navItem.parent}">
+    <!-- <mat-list-item #navItemRef *ngIf="!navItem.nav" (click)="onSwitch()" class="app-nav-list-item"  [ngClass]="{'nav-item-child': navItem.child, 'nav-item-parent': navItem.parent}">
         <mat-icon mat-list-icon aria-hidden="false" aria-label="Example home icon">{{navItem?.icon}}</mat-icon>
         <a matLine >{{navItem?.name}}</a>
         <mat-icon *ngIf="!panelOpen" aria-hidden="false" aria-label="Example home icon">expand_more</mat-icon>
         <mat-icon *ngIf="panelOpen" aria-hidden="false" aria-label="Example home icon">expand_less</mat-icon>
+    </mat-list-item> -->
+    
+    <mat-list-item #navItemRef  routerLinkActive="active" [routerLink]="navItem?.link" [routerLinkActiveOptions]="{exact: false}"  class="app-nav-list-item"  [ngClass]="{'nav-item-child': navItem.child, 'nav-item-parent': navItem.parent}">
+        <mat-icon mat-list-icon aria-hidden="false" aria-label="Example home icon">{{navItem?.icon}}</mat-icon>
+        <a matLine >{{navItem?.name}}</a>
+        <mat-icon *ngIf="!panelOpen" appPreventPropagation (click)="onSwitch()"  aria-hidden="false" aria-label="Example home icon">expand_more</mat-icon>
+        <mat-icon *ngIf="panelOpen" appPreventPropagation (click)="onSwitch()"  aria-hidden="false" aria-label="Example home icon">expand_less</mat-icon>
     </mat-list-item>
 
     <div class="nav-item-children" matLine [@animationShowHide]="sStatus">
