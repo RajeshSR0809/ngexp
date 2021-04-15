@@ -43,6 +43,13 @@ export class NavService {
         parent: true,
         nav: true,
       },
+      {
+        name: 'Caching with RxJs',
+        icon: 'cached',
+        link: '/cache',
+        parent: true,
+        nav: true,
+      },
       // {
       //   name: "Cards",
       //   icon: "style",

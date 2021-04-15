@@ -3,20 +3,29 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-    { 
-        path: '', 
-        component: DashboardComponent,
-        children: [
-            {
-                path: 'directives',
-                loadChildren: () => import("../directives/directives.module").then(m => m.DirectivesModule)
-            },
-            {
-                path: 'cards',
-                loadChildren: () => import("../cards/cards.module").then(m => m.CardsModule)
-            }
-        ]
-    }
+  {
+    path: '',
+    component: DashboardComponent,
+    children: [
+      {
+        path: 'directives',
+        loadChildren: () =>
+          import('../directives/directives.module').then(
+            (m) => m.DirectivesModule
+          ),
+      },
+      {
+        path: 'cards',
+        loadChildren: () =>
+          import('../cards/cards.module').then((m) => m.CardsModule),
+      },
+      {
+        path: 'cache',
+        loadChildren: () =>
+          import('../caching/caching.module').then((m) => m.CachingModule),
+      },
+    ],
+  },
 ];
 
 @NgModule({
