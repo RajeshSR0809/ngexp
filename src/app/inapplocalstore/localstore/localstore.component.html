@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12"></div>
-    <div class="col-12"></div>
+    
     <div class="col-12" *ngIf="showNotification$ | async as showNotification">
         <p class="notification" *ngIf="showNotification == 'true'">
         <mat-toolbar>
@@ -12,6 +12,19 @@
         </p>
 
     </div>
+    
+    <div class="col-12">
+        <p>
+            <mat-toolbar>
+                <span>
+                    Want to Pull Jokes!!! click here 
+                    <button (click)="forceUpdate()" mat-stroked-button class="hl"> <mat-icon mat-list-icon aria-hidden="false" aria-label="Example home icon">get_app</mat-icon> Fetch </button>
+                </span>
+            </mat-toolbar>
+        </p>
+
+    </div>
+
     <div class="col-12">
         <ng-container *ngIf="jokes$ | async as jokes">
             <mat-card *ngFor="let joke of jokes">

@@ -10,29 +10,33 @@ import { take, skip, mapTo, switchMap } from 'rxjs/operators';
 })
 export class LocalstoreComponent implements OnInit {
 
-  jokes$: Observable<any[]>;
-  initialJokes$: Observable<any[]> = this.getJokesOnce();
+  
+  
   
 
+  
   updates$ = new Subject();
+  forceUpdate$ = new Subject();
+  initialJokes$: Observable<any[]> = this.getJokesOnce();
+  updateJokes$: Observable<any[]> = merge(this.updates$.pipe(switchMap(_ => this.getJokesOnce())));
+  jokes$: Observable<any[]> = merge(this.initialJokes$, this.updateJokes$)
+
   initialNotification$: Observable<any> = this.storeService.jokes.pipe(skip(1))
-  show$ = this.initialNotification$.pipe(mapTo('true'));
-  hide$ = this.updates$.pipe(mapTo('false'));
+  show$ = merge(this.initialNotification$).pipe(mapTo('true'));
+  hide$ = merge(this.updates$, this.forceUpdate$).pipe(mapTo('false'));
   showNotification$ = merge(this.show$, this.hide$);
   
-  updateJokes$: Observable<any[]> = this.updates$.pipe(switchMap(_ => this.getJokesOnce()));
-  
-
-
   constructor(private storeService: LocalstoreService) { }
 
   ngOnInit(): void {
-    this.jokes$ = merge(this.initialJokes$, this.updateJokes$)
-
-    
   }
 
   getJokesOnce(): Observable<any>{
     return this.storeService.jokes.pipe(take(1))
+  }
+
+  forceUpdate(){
+    //this.storeService.forceUpdate();
+    this.forceUpdate$.next();
   }
 }
