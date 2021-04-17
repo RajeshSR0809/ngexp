@@ -1,5 +1,8 @@
 .mat-card  {
     margin-bottom: 10px;
+    font-weight: 700;
+    background-color: rgb(0 0 0 / 60%);
+    color: white;    
 }
 
 .hl {
@@ -10,16 +13,62 @@
 @keyframes moveInTop {
     0% {
         opacity: 0;
+        max-height: 0;
         transform: translateY(-100px);
     }
 
     100% {
         opacity: 1;
+        max-height: 100%;
         transform: translate(0);
 
     }
 }
 
+@keyframes moveOutTop {
+    0% {
+        opacity: 1;
+        transform: translate(0);
+    }   
+    
+    100% {
+        opacity: 0;
+        max-height: 0;
+        overflow: 'hidden';
+        transform: translateY(-100px);
+    }
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+    }   
+
+    50% {
+        opacity: 0.5;
+        max-width: 100%;
+        max-height: 50%;
+
+    }
+
+    100% {
+        opacity: 1;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
 .notification {
-    animation: moveInTop .5s ease-in;
+    max-height: 0;
+    animation: moveInTop .5s ease-in forwards;
+}
+
+.hide-notification {
+    animation: moveOutTop .3s ease-in forwards;
+}
+
+.op-anim {
+    animation: opacity 2s ease-in-out;
 }

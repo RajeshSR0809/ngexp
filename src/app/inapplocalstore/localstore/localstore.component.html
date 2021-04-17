@@ -1,12 +1,16 @@
 <div class="row">
-    <div class="col-12"></div>
+    <div class="col-12">
+        <!-- <ng-container *ngIf="showNotification$ | async as showNotification">
+            <p>{{showNotification}}</p>
+        </ng-container> -->
+    </div>
     
     <div class="col-12" *ngIf="showNotification$ | async as showNotification">
-        <p class="notification" *ngIf="showNotification == 'true'">
+        <p  #notificationbar class="notification"  *ngIf="showNotification == 'true'">
         <mat-toolbar>
             <span>
                 Got new Jokes !!!  Click here to update 
-                <button (click)="updates$.next('true')" mat-stroked-button class="hl"> <mat-icon mat-list-icon aria-hidden="false" aria-label="Example home icon">cached</mat-icon> View </button>
+                <button class="mat-elevation-z10" (click)="updates$.next('true')" mat-raised-button mat-stroked-button class="hl"> <mat-icon mat-list-icon aria-hidden="false" aria-label="Example home icon">cached</mat-icon> View </button>
             </span>
         </mat-toolbar>
         </p>
@@ -18,7 +22,7 @@
             <mat-toolbar>
                 <span>
                     Want to Pull Jokes!!! click here 
-                    <button (click)="forceUpdate()" mat-stroked-button class="hl"> <mat-icon mat-list-icon aria-hidden="false" aria-label="Example home icon">get_app</mat-icon> Fetch </button>
+                    <button class="mat-elevation-z10" (click)="forceUpdate()" mat-raised-button mat-stroked-button class="hl"> <mat-icon mat-list-icon aria-hidden="false" aria-label="Example home icon">get_app</mat-icon> Fetch </button>
                 </span>
             </mat-toolbar>
         </p>
@@ -27,11 +31,14 @@
 
     <div class="col-12">
         <ng-container *ngIf="jokes$ | async as jokes">
-            <mat-card *ngFor="let joke of jokes">
-                <mat-card-content>
-                    <p>{{joke.joke}}</p>
-                </mat-card-content>
-            </mat-card>
+            <div *ngIf="jokes.length > 0" >
+                <mat-card *ngFor="let joke of jokes" class="mat-elevation-z10 op-anim">
+                    <mat-card-content>
+                        <p>{{joke.joke}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
         </ng-container>
     </div>
 </div>

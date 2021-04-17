@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../core/services/api.service';
 import { Observable, timer, Subject } from 'rxjs';
-import { map, shareReplay, switchMap, takeUntil } from 'rxjs/operators';
+import { map, shareReplay, switchMap, takeUntil, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class LocalstoreService {
 
   get jokes(): Observable<any[]>{
     if(!this.cache$){
-      let timer$ = timer(0, 3000)
+      let timer$ = timer(0, 10000)
       this.cache$ = timer$.pipe(
         switchMap(() => this.requestJokes()),
         takeUntil(this.forcedFetch$),
@@ -27,7 +27,8 @@ export class LocalstoreService {
 
   private requestJokes(): Observable<any[]>{
     return this.apiService.get('https://api.icndb.com/jokes/random/5').pipe(
-      map(data => data.value)
+      map(data => data.value),
+      retry(5)
     )
   }
 
