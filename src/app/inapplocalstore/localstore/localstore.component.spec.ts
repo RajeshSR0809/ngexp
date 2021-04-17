@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CachingComponent } from './caching.component';
+import { LocalstoreComponent } from './localstore.component';
 
-describe('CachingComponent', () => {
-  let component: CachingComponent;
-  let fixture: ComponentFixture<CachingComponent>;
+describe('LocalstoreComponent', () => {
+  let component: LocalstoreComponent;
+  let fixture: ComponentFixture<LocalstoreComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CachingComponent ]
+      declarations: [ LocalstoreComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CachingComponent);
+    fixture = TestBed.createComponent(LocalstoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

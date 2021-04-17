@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-12"></div>
+    <div class="col-12"></div>
+    <div class="col-12" *ngIf="showNotification$ | async as showNotification">
+        <p class="notification" *ngIf="showNotification == 'true'">
+        <mat-toolbar>
+            <span>
+                Got new Jokes !!!  Click here to update 
+                <button (click)="updates$.next('true')" mat-stroked-button class="hl"> <mat-icon mat-list-icon aria-hidden="false" aria-label="Example home icon">cached</mat-icon> View </button>
+            </span>
+        </mat-toolbar>
+        </p>
+
+    </div>
+    <div class="col-12">
+        <ng-container *ngIf="jokes$ | async as jokes">
+            <mat-card *ngFor="let joke of jokes">
+                <mat-card-content>
+                    <p>{{joke.joke}}</p>
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
+    </div>
+</div>

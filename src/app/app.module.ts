@@ -16,10 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent
   ],
   imports: [
+    BrowserModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     CoreModule,

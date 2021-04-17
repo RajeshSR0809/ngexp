@@ -14,15 +14,15 @@ export class DirectivesService {
   getInsts(): Observable<any>{
     return forkJoin(
       this.apiService
-        .get('/transcriptInstitutuions.json')
+        .get('/mocks/transcriptInstitutuions.json')
         .pipe(pluck('GetTEASTranscriptInstitutionsResult', 'Institutions')),
 
       this.apiService
-        .get('/transcriptInstitutuions.json')
+        .get('/mocks/transcriptInstitutuions.json')
         .pipe(pluck('GetTEASTranscriptInstitutionsResult', 'Institutions')),
 
       this.apiService
-        .get('/transcriptInstitutuions.json')
+        .get('/mocks/transcriptInstitutuions.json')
         .pipe(pluck('GetTEASTranscriptInstitutionsResult', 'Institutions'))
     ).pipe(
       map(([a,b,c]) => {

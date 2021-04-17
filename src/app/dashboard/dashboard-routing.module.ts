@@ -22,7 +22,7 @@ const routes: Routes = [
       {
         path: 'cache',
         loadChildren: () =>
-          import('../caching/caching.module').then((m) => m.CachingModule),
+          import('../inapplocalstore/inapplocalstore.module').then((m) => m.InapplocalstoreModule),
       },
     ],
   },

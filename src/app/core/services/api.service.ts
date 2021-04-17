@@ -15,20 +15,20 @@ export class ApiService {
 
   get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
     return this.http
-      .get(`/mocks${path}`, { params })
+      .get(`${path}`, { params })
       .pipe(catchError(this.formatErrors));
   }
 
   put(path: string, body: Object = {}): Observable<any> {
     return this.http
-      .put(`/mocks${path}`, JSON.stringify(body))
+      .put(`${path}`, JSON.stringify(body))
       .pipe(catchError(this.formatErrors));
   }
 
   post(path: string, body: Object = {}): Observable<any> {
     return this.http
       .post(
-        `/mocks${path}`,
+        `${path}`,
         JSON.stringify(body)
       )
       .pipe(catchError(this.formatErrors));
@@ -36,7 +36,7 @@ export class ApiService {
 
   delete(path): Observable<any> {
     return this.http
-      .delete(`/mocks${path}`)
+      .delete(`${path}`)
       .pipe(catchError(this.formatErrors));
   }
 }
