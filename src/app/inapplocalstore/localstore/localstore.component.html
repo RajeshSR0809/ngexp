@@ -1,8 +1,9 @@
 <div class="row">
     <div class="col-12">
-        <!-- <ng-container *ngIf="showNotification$ | async as showNotification">
-            <p>{{showNotification}}</p>
-        </ng-container> -->
+        <p> Cache system is build usign advanced features of RxJS </p>
+        <p> Every 1s the data is fetched, notification is emitted to pull the updates</p>
+        <p> User will get notification if new data is available</p>
+        <p> User will have an option to update the jokes by force</p>
     </div>
     
     <div class="col-12" *ngIf="showNotification$ | async as showNotification">
