@@ -1,10 +1,5 @@
 <div class="row">
-    <div class="col-12">
-        <p> Cache system is build usign advanced features of RxJS </p>
-        <p> Every 1s the data is fetched, notification is emitted to pull the updates</p>
-        <p> User will get notification if new data is available</p>
-        <p> User will have an option to update the jokes by force</p>
-    </div>
+
     
     <div class="col-12" *ngIf="showNotification$ | async as showNotification">
         <p  #notificationbar class="notification"  *ngIf="showNotification == 'true'">
@@ -33,7 +28,7 @@
     <div class="col-12">
         <ng-container *ngIf="jokes$ | async as jokes">
             <div *ngIf="jokes.length > 0" >
-                <mat-card *ngFor="let joke of jokes" class="mat-elevation-z10 op-anim">
+                <mat-card *ngFor="let joke of jokes" class="mat-elevation-z10 joke op-anim">
                     <mat-card-content>
                         <p>{{joke.joke}}</p>
                     </mat-card-content>
@@ -42,4 +37,17 @@
 
         </ng-container>
     </div>
+
+    <div class="col-12">
+        <mat-card>
+            <mat-card-content>
+                <p> Cache system is build usign advanced features of RxJS </p>
+                <p> Every 1s the data is fetched, notification is emitted to pull the updates</p>
+                <p> User will get notification if new data is available</p>
+                <p> User will have an option to update the jokes by force</p>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+
 </div>

@@ -7,6 +7,7 @@ import { MaterialModule } from '../material/material.module';
 import { LazyOptionsDirective } from './lazy-options.directive';
 import { AddAttributesComponent } from './add-attributes/add-attributes.component';
 import { AddAttributesDirective } from './add-attributes.directive';
+import { ShareModule } from '../share';
 
 
 
@@ -16,6 +17,7 @@ import { AddAttributesDirective } from './add-attributes.directive';
   imports: [
     CommonModule,
     DirectivesRoutingModule,
+    ShareModule,
     MaterialModule
   ]
 })

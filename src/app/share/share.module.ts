@@ -18,21 +18,12 @@ import { PreventPropagationDirective } from './directives';
     NavItemExpandComponent,
     PreventPropagationDirective,
   ],
-  exports: [NavItemComponent, NavItemSearchComponent, NavItemExpandComponent],
+  exports: [NavItemComponent, NavItemSearchComponent, NavItemExpandComponent, PreventPropagationDirective],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule,
   ],
-  providers: [
-    {
-      provide: NavItemComponent,
-      useExisting: forwardRef(() => NavItemComponent),
-    },
-    {
-      provide: NavItemExpandComponent,
-      useExisting: forwardRef(() => NavItemExpandComponent),
-    },
-  ],
+  providers: [],
 })
 export class ShareModule {}
