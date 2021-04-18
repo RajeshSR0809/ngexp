@@ -32,3 +32,19 @@
     }
 
 }
+
+
+.mat-sidenav .no-sidenav {
+    max-width: 0px;
+    .nav-item-search-container .mat-list-item{
+        max-height: 0px;
+        max-width: 0px;
+        overflow: hidden;
+    }
+    .mat-list-item .mat-list-text {
+        max-height: 0px;
+        max-width: 0px;
+        overflow: hidden;
+    }
+
+}

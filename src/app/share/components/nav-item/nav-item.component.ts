@@ -17,7 +17,7 @@ export class NavItemComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.sideNavService.r$.subscribe(data => console.log(data), null, () => console.log('completed'));
+    this.sideNavService.r$.subscribe( );
     of(this.router.routerState.snapshot.url)
       .pipe(
         filter((url: string) => url.includes(this.navItem.link)),

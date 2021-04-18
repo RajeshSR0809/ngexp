@@ -20,7 +20,6 @@ export class LazyOptionsDirective {
     this.totalCount = this.totalCount-this.itemSize;
     this.lastRenderedData = data.slice(0, this.itemSize);
     this.lazyData.emit([...this.lastRenderedData]);
-    console.log('directive got new data to process   ', data.length, '');
   }
   constructor(private elemRef: ElementRef) {
 
@@ -65,7 +64,6 @@ export class LazyOptionsDirective {
       .subscribe((count) => {
         
         const startIndex = this.lastRenderedData.length;
-        console.log('start of the array', startIndex );
         const dataToEmit = [
           ...this.data.slice(startIndex, startIndex + this.itemSize),
         ];
@@ -73,7 +71,6 @@ export class LazyOptionsDirective {
         this.lastRenderedData = [...this.lastRenderedData, ...dataToEmit]
             
           
-        console.log('length of data rendered   ', this.lastRenderedData.length)
         this.lazyData.emit(dataToEmit);
 
       });

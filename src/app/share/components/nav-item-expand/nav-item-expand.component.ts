@@ -61,9 +61,6 @@ export class NavItemExpandComponent implements OnInit, AfterContentInit {
   }
   ngOnInit(): void {
     this.sideNavService.r$.subscribe(
-      (data) => console.log(data),
-      null,
-      () => console.log('completed')
     );
     of(this.router.routerState.snapshot.url)
       .pipe(

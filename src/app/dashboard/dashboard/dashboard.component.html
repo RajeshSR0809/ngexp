@@ -1,6 +1,6 @@
-<mat-sidenav-container #sidenavcontainer class="sidenav-container" >
+<mat-sidenav-container #sidenavcontainer class="sidenav-container" [hasBackdrop]="hasBackdrop">
   
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" >  
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">  
     
     <ng-container *ngIf="navItems$ | async as navItems">
       <app-side-nav [navItems]="navItems"></app-side-nav>
@@ -13,7 +13,7 @@
       <button (click)="toggleSideNav()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Ng Exp</span>
+      <span>{{sideNavState | json}}  Ng Exp</span>
       <span class="example-spacer"></span>
     </mat-toolbar>
 
