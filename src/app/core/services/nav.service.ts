@@ -99,75 +99,13 @@ export class NavService {
             ],
           },
         ],
-      },
-      {
-        name: 'Advanced Patterns',
-        icon: 'pattern',
-        link: '/patterns',
+      }, {
+        name: 'To Do',
+        icon: 'category',
+        link: '/todo',
         parent: true,
-        children: [
-          {
-            name: 'Component',
-            icon: 'minimize',
-            link: '/patterns/component',
-            child: true,
-          },
-          {
-            name: 'Compount Component',
-            icon: 'menu',
-            link: '/patterns/comp',
-            child: true,
-          },
-          {
-            name: 'Compount Component DI',
-            icon: 'wrap_text',
-            link: '/patterns/compDI',
-            parent: true,
-            children: [
-              {
-                name: 'Compount Component',
-                icon: 'menu',
-                link: '/patterns/comp',
-                child: true,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        name: 'Advanced Patterns',
-        icon: 'pattern',
-        link: '/patterns',
-        parent: true,
-        children: [
-          {
-            name: 'Component',
-            icon: 'minimize',
-            link: '/patterns/component',
-            child: true,
-          },
-          {
-            name: 'Compount Component',
-            icon: 'menu',
-            link: '/patterns/comp',
-            child: true,
-          },
-          {
-            name: 'Compount Component DI',
-            icon: 'wrap_text',
-            link: '/patterns/compDI',
-            parent: true,
-            children: [
-              {
-                name: 'Compount Component',
-                icon: 'menu',
-                link: '/patterns/comp',
-                child: true,
-              },
-            ],
-          },
-        ],
-      },
+        nav: true,
+      }
     ]);
   }
 }

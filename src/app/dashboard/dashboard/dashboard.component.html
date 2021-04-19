@@ -9,13 +9,15 @@
   </mat-sidenav>
 
   <mat-sidenav-content #sideNavContent>
-    <mat-toolbar>
-      <button (click)="toggleSideNav()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>{{sideNavState | json}}  Ng Exp</span>
-      <span class="example-spacer"></span>
-    </mat-toolbar>
+    
+      <mat-toolbar >
+        <button (click)="toggleSideNav()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span> Ng Exp</span>
+        <span class="example-spacer"></span>
+      </mat-toolbar>
+    
 
     <div class="container-fluid p-t-15"><router-outlet></router-outlet></div>
   </mat-sidenav-content>

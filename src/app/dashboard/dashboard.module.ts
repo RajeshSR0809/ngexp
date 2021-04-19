@@ -7,11 +7,12 @@ import { ShareModule } from '../share';
 import { NavService } from '../core/services/nav.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { TodoComponent } from './todo/todo.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, SideNavComponent],
+  declarations: [DashboardComponent, SideNavComponent, TodoComponent],
   imports: [CommonModule, DashboardRoutingModule, MaterialModule, ShareModule],
 })
 export class DashboardModule {
