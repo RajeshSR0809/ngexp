@@ -1,7 +1,8 @@
 @import "./_bootstrap-custom.scss";
+@import "./padding";
 @import "./nav-item";
 @import "./side-nav";
-@import "./padding";
+@import "./mat-side-nav-content";
 
 *, ::after, ::before {
     box-sizing: border-box;

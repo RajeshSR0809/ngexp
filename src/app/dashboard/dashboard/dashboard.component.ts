@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
       
     else if (!this.isInSmallScreen(windowWidth) &&  this.sideNavState.screen != 'large') {
-      this.sideNavState = { ...LargeSideNavState };
+      this.sideNavState = { ...LargeSideNavState, current: 'small' };
       this.setSideNavClassOnCurrentState();
     }
 
@@ -152,15 +152,16 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   toggleSideNavClass(prevClass: string, nextClass: string){
-    if (prevClass)
-      this.sidenav['_elementRef'].nativeElement.children[0].classList.remove(
-        prevClass
-      );
+
 
     if (nextClass)
       this.sidenav['_elementRef'].nativeElement.children[0].classList.add(
         nextClass
       );
+    if (prevClass)
+      this.sidenav['_elementRef'].nativeElement.children[0].classList.remove(
+        prevClass
+      );      
 
   }
 
