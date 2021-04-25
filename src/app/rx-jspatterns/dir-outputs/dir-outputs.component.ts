@@ -7,13 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirOutputsComponent implements OnInit {
 
-  valueFromDirective;
+  readonly rows = [
+    ["King Arthur", "-", "Arrested"],
+    ["Sir Bedevere", "The Wise", "Arrested"],
+    ["Sir Lancelot", "The Brave", "Arrested"],
+    ["Sir Galahad", "The Chaste", "Killed"],
+    ["Sir Robin", "The Not-Quite-So-Brave-As-Sir-Lancelot", "Killed"],
+  ];
   constructor() { }
 
   ngOnInit(): void {
   }
 
   onextFtrs($event){
-    this.valueFromDirective = $event;
   }
 }

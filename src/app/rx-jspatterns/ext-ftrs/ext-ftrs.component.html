@@ -1,4 +1,6 @@
-<div id="internal" extFtrsTEST (extFtrs)="onextFtrs($event)">
-    <p >ext-ftrs works! {{valueFromDirective}}</p>
-    <ng-content></ng-content>
+<div class="wrapper">
+	<div class="content">
+		<ng-content></ng-content>
+	</div>
+	<div class="bar" (extFtrs)="onextFtrs($event)"></div>
 </div>

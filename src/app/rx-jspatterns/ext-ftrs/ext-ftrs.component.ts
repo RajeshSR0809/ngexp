@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'p[extFtrs]',
+  selector: 'th[extFtrs]',
   templateUrl: './ext-ftrs.component.html',
   styleUrls: ['./ext-ftrs.component.scss']
 })
 export class ExtFtrsComponent implements OnInit {
 
-  valueFromDirective;
+  @HostBinding("style.width.px")
+  width: number | null = null;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onextFtrs($event) {
-    this.valueFromDirective = $event;
+  onextFtrs(width) {
+    this.width = width;
   }  
+  
 }

@@ -1,10 +1,10 @@
 import { Directive, OnInit, Inject, ElementRef, Output } from '@angular/core';
-import { of } from 'rxjs';
-import { delay, tap, map } from 'rxjs/operators';
+import { of, fromEvent } from 'rxjs';
+import { delay, tap, map, switchMap, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { DOCUMENT } from '@angular/common';
 
 @Directive({
-  selector: '[extFtrsTEST]',
+  selector: '[extFtrs]',
   host: {
     class: 'extFtrstestclass'
   }
@@ -12,7 +12,23 @@ import { DOCUMENT } from '@angular/common';
 export class ExtFtrsDirective implements OnInit {
 
   @Output()
-  readonly extFtrs = of(Math.random() * 100).pipe(delay(200), tap((_) => console.log(_)), map(_ => this.elementRef.nativeElement.id));
+  readonly extFtrs = fromEvent<MouseEvent>(
+    this.elementRef.nativeElement,
+    "mousedown"
+  ).pipe(
+    tap(e => e.preventDefault()),
+    switchMap(() => {
+      const { width, right } = this.elementRef.nativeElement
+        .closest("th")
+        .getBoundingClientRect();
+
+      return fromEvent<MouseEvent>(this.documentRef, "mousemove").pipe(
+        map(({ clientX }) => width + clientX - right),
+        distinctUntilChanged(),
+        takeUntil(fromEvent(this.documentRef, "mouseup"))
+      );
+    })
+  );
 
   constructor(
     @Inject(DOCUMENT) private readonly documentRef: Document,

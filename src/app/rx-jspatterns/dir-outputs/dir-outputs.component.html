@@ -1,9 +1,14 @@
-<!-- (extFtrs)="onextFtrs($event)" -->
-<p id="external" extFtrs > 
-    <ng-container>
-        <div style="background-color: antiquewhite;">
-            <p>this is the content projected</p>
-            <p>{{valueFromDirective}}</p>
-        </div>
-    </ng-container>     
-</p>
+<table>
+	<thead>
+		<tr>
+			<th extFtrs>Member</th>
+			<th extFtrs>Nickname</th>
+			<th>Fate</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let row of rows">
+			<td *ngFor="let cell of row">{{cell}}</td>
+		</tr>
+	</tbody>
+</table>
