@@ -52,14 +52,14 @@ export class NavService {
       },
       {
         name: "RxJs Patterns",
-        icon: "style",
+        icon: "add_reaction",
         link: "/rxjspatterns",
         parent: true,
         nav: true,
         children: [
           {
             name: "Resizable Table Columns",
-            icon: "style",
+            icon: "view_week",
             link: "/rxjspatterns/resizeClm",
             child: true,
             nav: true,
