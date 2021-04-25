@@ -26,6 +26,11 @@ const routes: Routes = [
           import('../inapplocalstore/inapplocalstore.module').then((m) => m.InapplocalstoreModule),
       },
       {
+        path: 'rxjspatterns',
+        loadChildren: () =>
+          import('../rx-jspatterns/rx-jspatterns.module').then((m) => m.RxJSPatternsModule),
+      },      
+      {
         path: 'todo',
         component: TodoComponent
       }

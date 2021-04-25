@@ -50,22 +50,22 @@ export class NavService {
         parent: true,
         nav: true,
       },
-      // {
-      //   name: "Cards",
-      //   icon: "style",
-      //   link: "/cards",
-      //   parent: true,
-      //   nav: true,
-      //   children: [
-      //     {
-      //       name: "Cards",
-      //       icon: "style",
-      //       link: "/cards",
-      //       child: true,
-      //       nav: true,
-      //     }
-      //   ]
-      // },
+      {
+        name: "RxJs Patterns",
+        icon: "style",
+        link: "/rxjspatterns",
+        parent: true,
+        nav: true,
+        children: [
+          {
+            name: "Resizable Table Columns",
+            icon: "style",
+            link: "/rxjspatterns/resizeClm",
+            child: true,
+            nav: true,
+          }
+        ]
+      },
       {
         name: 'Advanced Patterns',
         icon: 'pattern',
