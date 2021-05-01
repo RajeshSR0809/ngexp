@@ -63,7 +63,14 @@ export class NavService {
             link: "/rxjspatterns/resizeClm",
             child: true,
             nav: true,
-          }
+          },
+          {
+            name: "Hold To Delete",
+            icon: "auto_delete",
+            link: "/rxjspatterns/holdtodelete",
+            child: true,
+            nav: true,
+          }          
         ]
       },
       {
