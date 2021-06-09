@@ -1,0 +1,28 @@
+    <p>{{counterState | json}}</p>
+    <mat-card class="">
+      <mat-card-header>
+        
+        <mat-card-title></mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        
+        <div> <button class="counter" mat-button>{{counterState.count}}</button></div>
+
+        <br>
+        <div class="actions">
+            <button  (click)="cqrsService.changeStart(1)" mat-button mat-stroked-button mat-raised-button color="primary">Start</button>
+            <button  (click)="cqrsService.changePause(0)" mat-button mat-raised-button color="primary">Pause</button>
+        </div>
+
+        <div class="actions">
+            <button  mat-button mat-raised-button color="primary">Set To</button>
+            <mat-form-field class="">
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+
+        </div>
+      </mat-card-content>
+      <mat-action-row>
+      </mat-action-row>
+    </mat-card>

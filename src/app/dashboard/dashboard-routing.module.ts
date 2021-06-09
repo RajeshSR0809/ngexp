@@ -31,6 +31,11 @@ const routes: Routes = [
           import('../rx-jspatterns/rx-jspatterns.module').then((m) => m.RxJSPatternsModule),
       },      
       {
+        path: 'cqrs',
+        loadChildren: () =>
+          import('../cqrs/cqrs.module').then((m) => m.CqrsModule),
+      },        
+      {
         path: 'todo',
         component: TodoComponent
       }

@@ -106,7 +106,16 @@ export class NavService {
             ],
           },
         ],
-      }, {
+      }, 
+      {
+        name: 'CQRS',
+        icon: 'touch_app',
+        link: '/cqrs',
+        parent: true,
+        nav: true,
+      },
+
+      {
         name: 'To Do',
         icon: 'category',
         link: '/todo',
