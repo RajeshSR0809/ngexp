@@ -1,1 +1,50 @@
-<p>hold-to-delete works!</p>
+
+<ng-container *ngFor="let purchase of purchaseInfo; let index = index">
+    <div class="container-fluid mb-5">
+        <div class="row">
+            <div class="col-12 p-0 d-flex align-items-end ">
+                <p #prgBar class="prgBar m-0">&nbsp;</p>
+            </div>
+            <div class="col-12 p-0">
+                <mat-card class="">
+                    
+                    <mat-card-header >
+                        <mat-card-title >Cart Item Details</mat-card-title>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <p>{{purchase}}</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorum nam eum repudiandae? Blanditiis aspernatur nihil eligendi tempora, pariatur iure ad sunt inventore cupiditate, sapiente quam obcaecati a illo ipsa.</p>
+                    </mat-card-content>
+                    <mat-action-row>
+                        <button  disableRipple (mousedown)="mouseDown($event, purchase, index)" mat-button>
+                            <span class="align-items-center d-flex">
+                                <mat-icon mat-list-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon> 
+                                <span>Hold to delete</span>
+                            </span>
+
+                        </button>
+                    </mat-action-row>
+
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    </ng-container>
+
+
+    <div class="row mb-5">
+        <div class="col-12">
+            <mat-card>
+                <mat-card-content>
+                    
+                    <p> create intermediate streams and use all of them at once using merge or other tech </p>
+                    <p> race between observable stream </p>
+                    <p> take opr to complete the stream , in case you are subscriping inside a function </p>
+                    <p> linear-gradient : background for certain length/width </p>
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+    </div>

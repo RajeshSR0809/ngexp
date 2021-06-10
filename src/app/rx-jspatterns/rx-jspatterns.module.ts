@@ -5,14 +5,17 @@ import { RXJSRoutingModule } from './rx-jspatterns-routing.module';
 import { ExtFtrsComponent } from './ext-ftrs/ext-ftrs.component';
 import { ExtFtrsDirective } from './ext-ftrs.directive';
 import { HoldToDeleteComponent } from './hold-to-delete/hold-to-delete.component';
-
+import { ShareModule } from '../share';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
   declarations: [DirOutputsComponent, ExtFtrsComponent, ExtFtrsDirective, HoldToDeleteComponent],
   imports: [
     CommonModule,
-    RXJSRoutingModule
+    RXJSRoutingModule,
+    ShareModule,
+    MaterialModule
   ],
   exports: [ExtFtrsDirective]
 })
