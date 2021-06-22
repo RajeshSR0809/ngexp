@@ -23,6 +23,7 @@
     "@angular/router": "~10.2.4",
     "bootstrap": "^4.6.0",
     "lodash": "^4.17.21",
+    "ng-dynamic-component": "^8.0.1-no-barrels.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

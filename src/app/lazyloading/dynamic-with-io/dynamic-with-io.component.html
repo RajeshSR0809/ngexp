@@ -1,1 +1,7 @@
-<p>dynamic-with-io works!</p>
+<ng-container *ngFor="let a of config">
+    <ng-template 
+        [ngComponentOutlet]="comps[a.type] | async" 
+        [ndcDynamicInputs]="a.inputs"
+        >
+    </ng-template>
+</ng-container>

@@ -10,11 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from './core/services/api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DynamicIoModule } from 'ng-dynamic-component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CommonModule,
@@ -24,9 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CoreModule,
     ShareModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DynamicIoModule
   ],
   providers: [ApiService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

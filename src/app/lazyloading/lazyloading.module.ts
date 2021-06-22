@@ -6,15 +6,21 @@ import { DynamicWithIOComponent } from './dynamic-with-io/dynamic-with-io.compon
 import { LazyPatternsRoutingModule } from './lazyloading-routing.module';
 import { ProductCardComponent } from './dynamiccmp/product-card/product-card.component';
 import { MaterialModule } from '../material/material.module';
-
+import { DynamicIoModule } from 'ng-dynamic-component';
 
 
 @NgModule({
-  declarations: [DynamiccmpComponent, DynamicSCAMComponent, DynamicWithIOComponent, ProductCardComponent],
+  declarations: [
+    DynamiccmpComponent,
+    DynamicSCAMComponent,
+    DynamicWithIOComponent,
+    ProductCardComponent,
+  ],
   imports: [
     CommonModule,
     LazyPatternsRoutingModule,
-    MaterialModule
-  ]
+    MaterialModule,
+    DynamicIoModule
+  ],
 })
-export class LazyloadingModule { }
+export class LazyloadingModule {}
