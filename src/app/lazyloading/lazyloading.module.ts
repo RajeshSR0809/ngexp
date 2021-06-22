@@ -6,7 +6,9 @@ import { DynamicWithIOComponent } from './dynamic-with-io/dynamic-with-io.compon
 import { LazyPatternsRoutingModule } from './lazyloading-routing.module';
 import { ProductCardComponent } from './dynamiccmp/product-card/product-card.component';
 import { MaterialModule } from '../material/material.module';
-import { DynamicIoModule } from 'ng-dynamic-component';
+import { ProductInfoComponent } from './dynamic-with-io/product-info/product-info.component';
+import { OrderInfoComponent } from './dynamic-with-io/order-info/order-info.component';
+import { DynamicIoModule, DynamicIoDirective } from 'ng-dynamic-component';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { DynamicIoModule } from 'ng-dynamic-component';
     DynamicSCAMComponent,
     DynamicWithIOComponent,
     ProductCardComponent,
+    // ProductInfoComponent,
+    // OrderInfoComponent,
   ],
   imports: [
     CommonModule,
@@ -22,5 +26,8 @@ import { DynamicIoModule } from 'ng-dynamic-component';
     MaterialModule,
     DynamicIoModule
   ],
+  entryComponents:[
+
+  ]
 })
 export class LazyloadingModule {}

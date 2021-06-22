@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-order-info',
@@ -7,10 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class OrderInfoComponent implements OnInit {
 
-  @Input('info') info;
+  @Input('info') info: any;
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
+
+
+@NgModule({
+  imports: [CommonModule],
+  declarations: [OrderInfoComponent],
+  exports: [OrderInfoComponent],
+})
+export class OrderInfoComponentModule {}

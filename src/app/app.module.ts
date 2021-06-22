@@ -24,8 +24,9 @@ import { DynamicIoModule } from 'ng-dynamic-component';
     CoreModule,
     ShareModule,
     BrowserAnimationsModule,
-    DynamicIoModule
+    DynamicIoModule,
   ],
+  entryComponents: [],
   providers: [ApiService],
   bootstrap: [AppComponent],
 })
