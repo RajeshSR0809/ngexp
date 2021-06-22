@@ -4,6 +4,7 @@
       </mat-card-header>
 
       <mat-card-content>
-        <p>{{info | json}}</p>
+        <p *ngIf="info">{{info | json}}</p>
+        <p *ngIf="!info">Loading .......</p>
       </mat-card-content>
     </mat-card>

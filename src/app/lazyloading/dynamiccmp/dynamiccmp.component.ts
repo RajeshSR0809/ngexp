@@ -18,7 +18,7 @@ export class DynamiccmpComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(){
-    of(1).pipe(delay(500), tap(_ => this.loadProductInfoCom())).subscribe()
+    of(1).pipe(delay(1), tap(_ => this.loadProductInfoCom())).subscribe()
   }
 
   loadProductInfoCom(){
