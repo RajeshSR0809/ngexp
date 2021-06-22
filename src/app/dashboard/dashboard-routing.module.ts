@@ -29,7 +29,12 @@ const routes: Routes = [
         path: 'rxjspatterns',
         loadChildren: () =>
           import('../rx-jspatterns/rx-jspatterns.module').then((m) => m.RxJSPatternsModule),
-      },      
+      }, 
+      {
+        path: 'lazyloadingpatterns',
+        loadChildren: () =>
+          import('../lazyloading/lazyloading.module').then((m) => m.LazyloadingModule),
+      },     
       {
         path: 'cqrs',
         loadChildren: () =>

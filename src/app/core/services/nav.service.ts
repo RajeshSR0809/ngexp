@@ -114,7 +114,36 @@ export class NavService {
         parent: true,
         nav: true,
       },
-
+      {
+        name: "Lazy Patterns",
+        icon: "add_reaction",
+        link: "/lazyloadingpatterns",
+        parent: true,
+        nav: true,
+        children: [
+          {
+            name: "dynamic Cmp",
+            icon: "view_week",
+            link: "/lazyloadingpatterns/lazy",
+            child: true,
+            nav: true,
+          },
+          {
+            name: "Dynamic with import",
+            icon: "auto_delete",
+            link: "/lazyloadingpatterns/dynamicscam",
+            child: true,
+            nav: true,
+          },
+          {
+            name: "dynamicWithIO",
+            icon: "auto_delete",
+            link: "/lazyloadingpatterns/dynamicwithio",
+            child: true,
+            nav: true,
+          }          
+        ]
+      },
       {
         name: 'To Do',
         icon: 'category',
